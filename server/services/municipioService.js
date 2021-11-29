@@ -11,6 +11,18 @@ const buscarMunicipio = function(municipios, municipio = ""){
     return listMun;
 }
 
+const ordenarMunicipios = function sortByLength(array)
+{
+    console.log(array)
+    return array.sort(function(a, b)
+    {
+        var x = a['nombre']; var y = b['nombre'];
+        console.log(x)
+        return x.length - y.length;
+    });
+}
+
 module.exports = {
     buscarMunicipio,
+    ordenarMunicipios
 }
