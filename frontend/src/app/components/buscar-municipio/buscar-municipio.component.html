@@ -1,0 +1,33 @@
+<div class="card text-white bg-dark mb-3">
+    <div class="card-body">
+        <form #buscarMunicipio>
+          <div class="row">
+            <div class="col-4">
+              <mat-form-field class="" >
+                <mat-label>Municipio</mat-label>
+                <input type="text"
+                        class="form-control"
+                        placeholder="Pick one"
+                        aria-label="Number"
+                        matInput
+                        [formControl]="myControl"
+                        [matAutocomplete]="auto"
+                        #municipio>
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </div>
+            <div class="col-2">
+              <select class="form-select" (change)="onChange($event)">
+                <option selected value="G_CEL">ºC</option>
+                <option value="G_FAH">ºF</option>
+              </select>
+            </div>
+          </div>
+        </form>
+        <app-prediccion [codigo]="codigo" [nombre]="nombre" [unidadTemperatura]="unidadTemperatura"></app-prediccion>
+    </div>
+</div>

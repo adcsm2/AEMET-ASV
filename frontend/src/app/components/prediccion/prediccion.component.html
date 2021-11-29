@@ -1,0 +1,24 @@
+<div class="card text-white bg-dark mb-3" *ngIf="prediccion">
+    <div class="card-body">
+        <h1>{{ prediccion.nombre }} </h1>
+        <br>
+        Prediccion para el día
+        {{ prediccion.date | date: 'M/dd/yyyy'}}
+        <br>
+        Temperatura media:  
+        {{ prediccion.mediaTemperatura }} {{ prediccion.unidadTemperatura }}
+        <br>
+        <table class="table">
+            <thead>
+                <tr style="text-align: center; color: #fff; background: black;" >
+                    <th scope="col" *ngFor="let precipitacion of prediccion.probPrecipitacion">{{ precipitacion.periodo }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr style="text-align: center; color: #fff; background: black;" >
+                        <td *ngFor="let precipitacion of prediccion.probPrecipitacion"> {{ precipitacion.value }}% </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

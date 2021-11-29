@@ -41,7 +41,7 @@ router.get('/obtenerMunicipio/:municipio?', async (req, res)=>{
         municipiosEncontrados = MunicipioService.buscarMunicipio(listaMunicipios.data, municipio)
     }
     else{
-        municipiosEncontrados = listaMunicipios.municipios
+        municipiosEncontrados = listaMunicipios.data
     }
     res.json(municipiosEncontrados)
 })
