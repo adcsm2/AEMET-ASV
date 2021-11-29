@@ -1,6 +1,9 @@
 const axios = require('axios')
 const apiKey = process.env.API_KEY
 
+/**
+ * @returns lsita de municipios
+ */
 const listarMunicipios = async function() {
     const response = await axios({
         url: 'https://opendata.aemet.es/opendata/api/maestro/municipios?api_key='+apiKey,
@@ -26,6 +29,11 @@ const obtenerPrediccionDatos = async function(municipio) {
     return response
 }
 
+/**
+ * 
+ * @param {*} path path del que obtendremos los datos
+ * @returns 
+ */
 const obtenerDatos = async function(path) {
     const response = await axios({
         url: path,

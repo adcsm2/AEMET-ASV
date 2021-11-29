@@ -19,6 +19,7 @@ router.get('/obtenerMunicipio/:municipio?', async (req, res)=>{
         const datePrediccion = listaMunicipios.updatedAt.getDate()
         const date = new Date().getDate()
         const diffDate = date - datePrediccion
+        //Si la lista que tenemos es de hace 7 días la actualizamos
         if(diffDate >= 7){
             listaMunicipiosAPI = await AemetService.listarMunicipios();
             await MunicipiosDB.actualizarMunicipios(listaMunicipios._id, listaMunicipiosAPI.data)
